@@ -1,0 +1,636 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriSmart AI™ | Intelligent Crop & Precision Farming Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <div class="app-layout">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">
+          <h1>AgriSmart AI</h1>
+          <p>Precision Agro Suite</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-tab="crop-recommender">
+          <span class="icon">🌾</span>
+          <span>Crop Recommender</span>
+        </a>
+        <a class="nav-item" data-tab="fertilizer-doctor">
+          <span class="icon">🧪</span>
+          <span>Soil & Fertilizer Doctor</span>
+        </a>
+        <a class="nav-item" data-tab="disease-doctor">
+          <span class="icon">🩺</span>
+          <span>Plant Disease Doctor</span>
+        </a>
+        <a class="nav-item" data-tab="soil-wizard">
+          <span class="icon">🧙</span>
+          <span>Beginner Soil Wizard</span>
+        </a>
+        <a class="nav-item" data-tab="crop-roadmap">
+          <span class="icon">📅</span>
+          <span>120-Day Farming Roadmap</span>
+        </a>
+        <a class="nav-item" data-tab="roi-calculator">
+          <span class="icon">💰</span>
+          <span>Farm ROI & Profit</span>
+        </a>
+        <a class="nav-item" data-tab="weather-advisory">
+          <span class="icon">🌤️</span>
+          <span>Live Weather & Spraying</span>
+        </a>
+        <a class="nav-item" data-tab="mandi-rates">
+          <span class="icon">📊</span>
+          <span>Mandi Prices & Trends</span>
+        </a>
+        <a class="nav-item" data-tab="govt-schemes">
+          <span class="icon">🏛️</span>
+          <span>Govt Subsidies & Schemes</span>
+        </a>
+        <a class="nav-item" data-tab="kisan-chat">
+          <span class="icon">🤖</span>
+          <span>Kisan Mitra Voice AI</span>
+        </a>
+        <a class="nav-item" data-tab="farm-report">
+          <span class="icon">📄</span>
+          <span>Printable Farm Report</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-pill">
+          <span class="status-dot"></span>
+          <span>AI Model: Active (32 Crops)</span>
+        </span>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="preset-dropdown">
+            <span>📍 Load Field:</span>
+            <select id="presetSelect">
+              <option value="">-- Choose Field Preset --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button id="themeToggle" class="btn btn-secondary btn-icon" title="Toggle Dark/Light Mode">🌙</button>
+          <button onclick="window.print()" class="btn btn-secondary" title="Print Soil Card">🖨️ Print</button>
+          <button onclick="document.querySelector('[data-tab=\'kisan-chat\']').click()" class="btn btn-primary">
+            <span>🎙️ AI Assistant</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="content-body">
+        
+        <!-- ================= TAB 1: CROP RECOMMENDER ================= -->
+        <section id="crop-recommender" class="tab-pane active">
+          <div class="section-header">
+            <h2>🌾 AI Multi-Crop Recommendation Engine</h2>
+            <p>Leveraging high-precision ensemble machine learning trained across 32 major agricultural crops.</p>
+          </div>
+
+          <div class="grid-2">
+            <!-- INPUT CONTROLS -->
+            <div class="card">
+              <div class="card-title">
+                <span>Field Soil Nutrients & Climate Inputs</span>
+                <span id="phZone" style="font-size:12px;font-weight:700;">Optimal Neutral Range</span>
+              </div>
+
+              <!-- Nitrogen -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Nitrogen (N)</span>
+                  <span id="val_N" class="value-badge">76 kg/ha</span>
+                </div>
+                <input type="range" id="range_N" class="form-range" min="0" max="180" step="1" value="76">
+                <div class="range-marks"><span>0 Low</span><span>80 Optimal</span><span>180 High</span></div>
+              </div>
+
+              <!-- Phosphorus -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Phosphorus (P)</span>
+                  <span id="val_P" class="value-badge">44 kg/ha</span>
+                </div>
+                <input type="range" id="range_P" class="form-range" min="0" max="150" step="1" value="44">
+                <div class="range-marks"><span>0 Deficient</span><span>50 Optimal</span><span>150 Rich</span></div>
+              </div>
+
+              <!-- Potassium -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Potassium (K)</span>
+                  <span id="val_K" class="value-badge">36 kg/ha</span>
+                </div>
+                <input type="range" id="range_K" class="form-range" min="0" max="220" step="1" value="36">
+                <div class="range-marks"><span>0 Low</span><span>50 Balanced</span><span>220 High</span></div>
+              </div>
+
+              <!-- Soil pH -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Soil Reaction (pH)</span>
+                  <span id="val_ph" class="value-badge">6.8</span>
+                </div>
+                <input type="range" id="range_ph" class="form-range" min="4.0" max="9.0" step="0.1" value="6.8">
+                <div class="range-marks"><span>4.0 Acidic</span><span>6.5 Neutral</span><span>9.0 Alkaline</span></div>
+              </div>
+
+              <!-- Temperature -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Ambient Temperature</span>
+                  <span id="val_temperature" class="value-badge">19°C</span>
+                </div>
+                <input type="range" id="range_temperature" class="form-range" min="10" max="45" step="0.5" value="19.0">
+                <div class="range-marks"><span>10°C Cool</span><span>25°C Moderate</span><span>45°C Hot</span></div>
+              </div>
+
+              <!-- Humidity -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Relative Humidity</span>
+                  <span id="val_humidity" class="value-badge">55%</span>
+                </div>
+                <input type="range" id="range_humidity" class="form-range" min="15" max="100" step="1" value="55">
+                <div class="range-marks"><span>15% Arid</span><span>60% Medium</span><span>100% Humid</span></div>
+              </div>
+
+              <!-- Rainfall -->
+              <div class="form-group">
+                <div class="form-label">
+                  <span>Annual / Seasonal Rainfall</span>
+                  <span id="val_rainfall" class="value-badge">75 mm</span>
+                </div>
+                <input type="range" id="range_rainfall" class="form-range" min="20" max="320" step="1" value="75">
+                <div class="range-marks"><span>20 mm Dry</span><span>100 mm Moderate</span><span>320 mm Heavy</span></div>
+              </div>
+
+              <button id="btnPredict" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;margin-top:8px;">
+                🌾 Predict Optimal Crops & Nutrients
+              </button>
+            </div>
+
+            <!-- PREDICTION OUTPUT -->
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <!-- Winner Card -->
+              <div class="crop-winner-card">
+                <span class="crop-winner-badge">🏆 TOP RECOMMENDATION</span>
+                <p style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;">Primary Crop Match</p>
+                <div class="crop-name" id="topCropName">Wheat</div>
+                
+                <div class="match-bar-wrap">
+                  <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px;">
+                    <span>AI Confidence Score</span>
+                    <span id="topConfidence" style="color:var(--primary);">98% Match</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="topProgressBar" class="progress-fill" style="width: 98%;"></div>
+                  </div>
+                </div>
+
+                <p id="topReason" style="font-size:13.5px;color:var(--text-main);margin-top:10px;">
+                  Optimal match: soil pH, rainfall requirements, and winter temperature profile are favorable.
+                </p>
+              </div>
+
+              <!-- Runner-Ups Card -->
+              <div class="card">
+                <div class="card-title">
+                  <span>Alternate Viable Crops</span>
+                  <span style="font-size:12px;color:var(--text-muted);">Diversification Options</span>
+                </div>
+                <div id="runnerList" class="runner-ups">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <!-- Quick Soil Health Advisory -->
+              <div class="card" style="border-left: 4px solid var(--primary);">
+                <div class="card-title">
+                  <span>Field Soil Advisory</span>
+                  <span style="font-size:12px;color:var(--primary);cursor:pointer;" onclick="document.querySelector('[data-tab=\'fertilizer-doctor\']').click()">Detailed Doctor →</span>
+                </div>
+                <p id="quickFertAdvice" style="font-size:13px;color:var(--text-muted);">
+                  Analyzing soil balance...
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 2: SOIL & FERTILIZER DOCTOR ================= -->
+        <section id="fertilizer-doctor" class="tab-pane">
+          <div class="section-header">
+            <h2>🧪 Precision Soil & Fertilizer Doctor</h2>
+            <p>Calculates exact nutrient deficits, commercial bag dosages (Urea, DAP, MOP), and organic remedies.</p>
+          </div>
+
+          <div class="card" style="margin-bottom:24px;">
+            <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
+              <div style="flex:1;min-width:200px;">
+                <label class="form-label">Target Cultivated Crop:</label>
+                <select id="fertTargetCrop" class="input-field">
+                  <option value="">-- Choose Crop --</option>
+                </select>
+              </div>
+              <div style="width:160px;">
+                <label class="form-label">Farm Size (Acres):</label>
+                <input type="number" id="fertAcres" class="input-field" value="1.0" min="0.25" step="0.25">
+              </div>
+            </div>
+          </div>
+
+          <div id="fertPlanContainer">
+            <!-- Dynamic fertilizer prescription cards -->
+          </div>
+        </section>
+
+        <!-- ================= TAB 3: PLANT DISEASE DOCTOR ================= -->
+        <section id="disease-doctor" class="tab-pane">
+          <div class="section-header">
+            <h2>🩺 AI Plant Disease Diagnostic Center</h2>
+            <p>Diagnose 20+ crop diseases, insect pests, and fungal blights with organic and chemical remedies.</p>
+          </div>
+
+          <div class="card" style="margin-bottom:24px;">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <div style="flex:2;min-width:240px;">
+                <input type="text" id="diseaseSearch" class="input-field" placeholder="🔍 Search symptoms (e.g. yellow stripes, spindle spots, curled leaves, frass)...">
+              </div>
+              <div style="flex:1;min-width:180px;">
+                <select id="diseaseCropFilter" class="input-field">
+                  <option value="">All Crops</option>
+                  <option value="Wheat">Wheat</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Tomato">Tomato</option>
+                  <option value="Potato">Potato</option>
+                  <option value="Banana">Banana</option>
+                  <option value="Sugarcane">Sugarcane</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div id="diseaseDetailModal" style="margin-bottom:24px;"></div>
+          <div id="diseaseGrid" class="grid-3">
+            <!-- Populated with disease cards -->
+          </div>
+        </section>
+
+        <!-- ================= TAB 4: BEGINNER SOIL WIZARD ================= -->
+        <section id="soil-wizard" class="tab-pane">
+          <div class="section-header">
+            <h2>🧙 Beginner Farmer Soil & Region Wizard</h2>
+            <p>No soil test lab report? Select your soil texture and sowing season to generate baseline agronomic parameters.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title">Select Soil & Agro-Ecological Profile</div>
+              
+              <div class="form-group">
+                <label class="form-label">Soil Texture Type:</label>
+                <select id="wizardSoilType" class="input-field">
+                  <option value="Alluvial Soil">Alluvial Soil (River plains: Punjab, UP, Bihar, WB)</option>
+                  <option value="Black Cotton Soil (Regur)">Black Cotton Soil (Deccan: Maharashtra, MP, Gujarat)</option>
+                  <option value="Red & Yellow Soil">Red & Yellow Soil (South & East: TN, Odisha, Karnataka)</option>
+                  <option value="Laterite Soil">Laterite Soil (Acidic/High rain: Kerala, Coastal Ghats)</option>
+                  <option value="Sandy Loam / Coastal Soil">Sandy Loam / Coastal Soil (Arid / Rajasthan / Beach belts)</option>
+                  <option value="Clay Loam / Heavy Soil">Clay Loam / Heavy Soil (Rich fertile river valleys)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Farming Season:</label>
+                <select id="wizardSeason" class="input-field">
+                  <option value="Kharif (Monsoon / Summer Sowing: June - Oct)">Kharif (Monsoon Sowing: June - Oct)</option>
+                  <option value="Rabi (Winter Sowing: Oct - March)">Rabi (Winter Sowing: Oct - March)</option>
+                  <option value="Zaid (Summer Short Season: March - June)">Zaid (Summer Short Season: March - June)</option>
+                </select>
+              </div>
+
+              <button id="btnApplyWizard" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:12px;">
+                🚀 Apply Soil Baseline & Recommend Crops
+              </button>
+            </div>
+
+            <div class="card" style="background:var(--primary-light);border:1px solid rgba(16,185,129,0.3);">
+              <h3 style="color:var(--primary);font-size:16px;font-weight:700;margin-bottom:12px;">💡 Tips for First-Time Farmers</h3>
+              <ul style="font-size:13.5px;color:var(--text-main);display:flex;flex-direction:column;gap:10px;padding-left:18px;">
+                <li><strong>Soil Health Card:</strong> Always consider getting an official soil health card from your local Krishi Vigyan Kendra (KVK). It costs almost nothing!</li>
+                <li><strong>Crop Rotation:</strong> Never cultivate the same cereal crop twice in a row; rotate with legumes (chickpea, moong) to naturally fix atmospheric nitrogen.</li>
+                <li><strong>Seed Treatment:</strong> Treating seed with <em>Trichoderma</em> or bio-agents prevents 60% of seedling rot diseases.</li>
+                <li><strong>Avoid Over-Urea:</strong> Excessive urea turns foliage lush green but makes plants vulnerable to stem breakage and sucking pests.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 5: 120-DAY CROP ROADMAP ================= -->
+        <section id="crop-roadmap" class="tab-pane">
+          <div class="section-header">
+            <h2>📅 120-Day Farming Lifecycle Roadmap</h2>
+            <p>Phase-by-phase chronological management guide from land preparation to harvesting and storage.</p>
+          </div>
+
+          <div class="card" style="margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <label class="form-label" style="margin:0;">Select Crop Roadmap:</label>
+              <select id="roadmapCropSelect" class="input-field" style="width:200px;">
+                <option value="Wheat">Wheat</option>
+                <option value="Rice">Rice</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Default">General Crop Roadmap</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="roadmapTimeline" class="timeline">
+            <!-- Dynamic 5-phase timeline -->
+          </div>
+        </section>
+
+        <!-- ================= TAB 6: FARM ROI & PROFIT ESTIMATOR ================= -->
+        <section id="roi-calculator" class="tab-pane">
+          <div class="section-header">
+            <h2>💰 Farm Economics & ROI Profit Estimator</h2>
+            <p>Calculate total investment, expected harvest revenue, net profit margin, and break-even selling price.</p>
+          </div>
+
+          <div class="grid-2">
+            <!-- INPUT FORM -->
+            <div class="card">
+              <div class="card-title">Production Costs & Yield Inputs</div>
+              <div class="form-group">
+                <label class="form-label">Crop Type:</label>
+                <select id="roiCrop" class="input-field">
+                  <option value="Wheat">Wheat</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Mustard">Mustard</option>
+                  <option value="Groundnut">Groundnut</option>
+                  <option value="Tomato">Tomato</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Cultivated Area (Acres):</label>
+                <input type="number" id="roiAcres" class="input-field" value="2.0" step="0.5" min="0.25">
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="form-group">
+                  <label class="form-label">Seed Cost (₹/Acre):</label>
+                  <input type="number" id="roiSeed" class="input-field" value="2500">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Fertilizer (₹/Acre):</label>
+                  <input type="number" id="roiFert" class="input-field" value="4000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Labor & Tilling (₹/Acre):</label>
+                  <input type="number" id="roiLabor" class="input-field" value="5500">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Irrigation/Fuel (₹/Acre):</label>
+                  <input type="number" id="roiIrrig" class="input-field" value="2000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Pest Control (₹/Acre):</label>
+                  <input type="number" id="roiPest" class="input-field" value="2500">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Misc/Harvest (₹/Acre):</label>
+                  <input type="number" id="roiMisc" class="input-field" value="1500">
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+                <div class="form-group">
+                  <label class="form-label">Expected Yield (Qtl/Acre):</label>
+                  <input type="number" id="roiYield" class="input-field" value="22.0">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Market / MSP Rate (₹/Qtl):</label>
+                  <input type="number" id="roiPrice" class="input-field" value="2450.0">
+                </div>
+              </div>
+            </div>
+
+            <!-- OUTPUT FINANCIAL STATS -->
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div class="grid-2">
+                <div class="stat-box">
+                  <div class="stat-label">Total Investment</div>
+                  <div id="roiTotalCost" class="stat-value">₹36,000</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Gross Revenue</div>
+                  <div id="roiGrossRev" class="stat-value">₹1,07,800</div>
+                </div>
+              </div>
+
+              <div class="stat-box profit" style="background:var(--primary-light);border:2px solid var(--primary);padding:24px;">
+                <div class="stat-label" style="color:var(--primary);">Net Profit (Estimated)</div>
+                <div id="roiNetProfit" class="stat-value" style="font-size:32px;color:#047857;">₹71,800</div>
+                <div id="roiPercentage" style="font-size:14px;font-weight:700;color:var(--primary);margin-top:4px;">199.4% ROI</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-label">Break-Even Selling Price</div>
+                <div id="roiBreakeven" class="stat-value" style="font-size:18px;">₹818 / Qtl</div>
+                <p style="font-size:11.5px;color:var(--text-muted);margin-top:4px;">Selling above this price guarantees profitability.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 7: LIVE WEATHER & SPRAYING ================= -->
+        <section id="weather-advisory" class="tab-pane">
+          <div class="section-header">
+            <h2>🌤️ Live Agricultural Weather & Spraying Advisory</h2>
+            <p>Real-time microclimate observations, safe foliar spraying windows, and humidity fungal disease warnings.</p>
+          </div>
+
+          <div class="weather-banner" style="margin-bottom:24px;">
+            <div>
+              <span id="sprayBadge" class="status-pill" style="background:#ffffff;color:#0284c7;font-weight:700;margin-bottom:10px;">
+                Checking Weather...
+              </span>
+              <h3 style="font-size:24px;font-weight:800;margin-top:6px;">Regional Agro-Weather Status</h3>
+              <p id="sprayAdvisoryText" style="opacity:0.9;font-size:13.5px;margin-top:4px;">
+                Loading live meteorological conditions...
+              </p>
+            </div>
+
+            <div class="weather-stats">
+              <div class="weather-item">
+                <span id="weatherTemp" class="val">--°C</span>
+                <span class="lbl">Temperature</span>
+              </div>
+              <div class="weather-item">
+                <span id="weatherHum" class="val">--%</span>
+                <span class="lbl">Humidity</span>
+              </div>
+              <div class="weather-item">
+                <span id="weatherWind" class="val">-- km/h</span>
+                <span class="lbl">Wind Velocity</span>
+              </div>
+              <div class="weather-item">
+                <span id="weatherRain" class="val">-- mm</span>
+                <span class="lbl">Precipitation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title">Spray Safety Guidelines</div>
+              <ul style="font-size:13px;color:var(--text-muted);display:flex;flex-direction:column;gap:8px;padding-left:18px;">
+                <li><strong>Wind Speed:</strong> Best between 5–12 km/h. If wind exceeds 15 km/h, spray droplets drift away and contaminate non-target areas.</li>
+                <li><strong>Temperature & Sun:</strong> Avoid spraying at peak noon (>32°C). Early morning or late evening prevents rapid evaporation and leaf scorching.</li>
+                <li><strong>Rain Forecast:</strong> Ensure at least 4–6 rain-free hours after chemical foliar application for proper systemic absorption.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Fungal Disease Alert Rules</div>
+              <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">
+                When relative humidity stays above 80% for more than 48 hours accompanied by mild temperatures (20°C–28°C), fungal spores (Rust, Blast, Blight) germinate rapidly.
+              </p>
+              <div class="fert-pill" style="border-left-color:#f59e0b;">
+                <h4>Preventive Action</h4>
+                <p>Apply preventive bio-control (Trichoderma / Pseudomonas) or Mancozeb spray before symptoms turn visible.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 8: MANDI PRICES & TRENDS ================= -->
+        <section id="mandi-rates" class="tab-pane">
+          <div class="section-header">
+            <h2>📊 Mandi Wholesale Prices & MSP Benchmarks</h2>
+            <p>Live indicative market wholesale rates, Government Minimum Support Prices, and strategic selling advisories.</p>
+          </div>
+
+          <div class="card" style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;text-align:left;font-size:13.5px;">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border-light);background:var(--bg-card-subtle);">
+                  <th style="padding:12px;">Crop Commodity</th>
+                  <th style="padding:12px;">MSP Benchmark</th>
+                  <th style="padding:12px;">Modal Mandi Rate</th>
+                  <th style="padding:12px;">7-Day Trend</th>
+                  <th style="padding:12px;">Farmer Selling Advisory</th>
+                </tr>
+              </thead>
+              <tbody id="mandiTableBody">
+                <!-- Dynamic rows -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= TAB 9: GOVT SUBSIDIES & SCHEMES ================= -->
+        <section id="govt-schemes" class="tab-pane">
+          <div class="section-header">
+            <h2>🏛️ Central & State Government Welfare Schemes</h2>
+            <p>Access direct financial incentives, crop insurance, solar pumps, and farm mechanization subsidies.</p>
+          </div>
+
+          <div id="schemesGrid" class="grid-2">
+            <!-- Populated dynamically with scheme cards -->
+          </div>
+        </section>
+
+        <!-- ================= TAB 10: KISAN MITRA VOICE AI ================= -->
+        <section id="kisan-chat" class="tab-pane">
+          <div class="section-header">
+            <h2>🤖 Kisan Mitra AI Agronomist Copilot</h2>
+            <p>Ask any farming question in real-time. Features multilingual support, voice speech recognition, and audio narration.</p>
+          </div>
+
+          <div class="chat-container">
+            <div style="padding:12px 18px;border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center;background:var(--bg-card);">
+              <span style="font-size:13px;font-weight:700;color:var(--primary);">🌱 Kisan Mitra Voice Assistant</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <select id="chatLang" class="input-field" style="padding:4px 8px;font-size:12px;width:auto;">
+                  <option value="en">English</option>
+                  <option value="hi">हिंदी (Hindi)</option>
+                  <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                  <option value="te">తెలుగు (Telugu)</option>
+                  <option value="mr">मराठी (Marathi)</option>
+                  <option value="ta">தமிழ் (Tamil)</option>
+                </select>
+                <button id="btnToggleTTS" class="btn btn-secondary" style="font-size:12px;padding:4px 10px;">🔈 Voice Reading OFF</button>
+              </div>
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+              <div class="chat-bubble bot">
+                Namaste! I am Kisan Mitra, your AI Agronomist. Ask me about crop choices, fertilizer dosages, pest remedies, drip irrigation subsidies, or soil pH corrections!
+              </div>
+            </div>
+
+            <div class="chat-input-bar">
+              <input type="text" id="chatInput" class="chat-input" placeholder="Type or click the microphone to ask a question...">
+              <button id="btnVoiceInput" class="btn btn-secondary" style="padding:8px 12px;" title="Speak question">🎙️ Speak</button>
+              <button id="btnSendChat" class="btn btn-primary">Send</button>
+            </div>
+          </div>
+
+          <div class="quick-prompts">
+            <span style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;">Quick Questions:</span>
+            <span class="prompt-pill">Why are my leaves turning yellow?</span>
+            <span class="prompt-pill">How to fix acidic soil pH?</span>
+            <span class="prompt-pill">Best organic spray for aphids and bollworm?</span>
+            <span class="prompt-pill">How to apply for Drip Irrigation subsidy?</span>
+            <span class="prompt-pill">What happens if I give excess Urea?</span>
+          </div>
+        </section>
+
+        <!-- ================= TAB 11: PRINTABLE FARM REPORT ================= -->
+        <section id="farm-report" class="tab-pane">
+          <div class="section-header">
+            <h2>📄 Official Soil Health Card & Farm Advisory Report</h2>
+            <p>Print or export an official-grade agricultural advisory report for your field.</p>
+          </div>
+
+          <div id="printableReportView">
+            <!-- Dynamic Soil Health Card generated from prediction -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

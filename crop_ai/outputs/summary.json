@@ -1,0 +1,299 @@
+{
+  "prep": {
+    "raw_rows": 3840,
+    "missing": 161,
+    "classes": 32,
+    "clean_rows": 3840,
+    "train": 3072,
+    "test": 768
+  },
+  "scores": {
+    "Random Forest": {
+      "cv": 0.9469378459256905,
+      "test": 0.9401041666666666
+    },
+    "Extra Trees": {
+      "cv": 0.9531230634781919,
+      "test": 0.94140625
+    },
+    "K-Nearest Neighbors": {
+      "cv": 0.9016906331929769,
+      "test": 0.8997395833333334
+    },
+    "Naive Bayes": {
+      "cv": 0.9554005455363999,
+      "test": 0.9466145833333334
+    }
+  },
+  "best": "Naive Bayes",
+  "demo": {
+    "Field 1 - Punjab Indo-Gangetic Alluvial": {
+      "input": {
+        "N": 75,
+        "P": 44,
+        "K": 36,
+        "temperature": 18.5,
+        "humidity": 56.0,
+        "ph": 6.8,
+        "rainfall": 72.0
+      },
+      "top3": [
+        [
+          "Wheat",
+          0.987
+        ],
+        [
+          "Onion",
+          0.012
+        ],
+        [
+          "Barley",
+          0.001
+        ]
+      ],
+      "ranked": [
+        {
+          "crop": "Wheat",
+          "confidence": 98.7,
+          "suitability": "High",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Onion",
+          "confidence": 1.2,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Barley",
+          "confidence": 0.1,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        }
+      ],
+      "best_crop": "Wheat",
+      "best_confidence": 98.7,
+      "fertilizer_plan": {
+        "summary": "Soil N-P-K nutrient status is in near-optimal balance for Wheat.",
+        "actions": [],
+        "commercial": [],
+        "ph_status": "Optimal / Neutral",
+        "ph_advice": "Soil pH is in the optimal range (6.2 - 7.5). Excellent nutrient assimilation capacity.",
+        "organic": [
+          "Well-decomposed Farm Yard Manure (FYM): 4-5 tonnes/acre",
+          "Vermicompost: 1.5-2 tonnes/acre enriched with Trichoderma viride",
+          "Biofertilizers: Azotobacter / Rhizobium (for pulses) + PSB (Phosphate Solubilizing Bacteria) @ 2 kg/acre seed or soil treatment",
+          "Neem Cake: 150 kg/acre (acts as slow-release organic N and suppresses root-knot nematodes)"
+        ],
+        "ideal_profile": {
+          "N": 75,
+          "P": 45,
+          "K": 35,
+          "pH": 6.8
+        }
+      },
+      "advice": "Soil N-P-K nutrient status is in near-optimal balance for Wheat."
+    },
+    "Field 2 - Maharashtra Black Cotton Soil": {
+      "input": {
+        "N": 115,
+        "P": 45,
+        "K": 22,
+        "temperature": 25.0,
+        "humidity": 78.0,
+        "ph": 7.0,
+        "rainfall": 82.0
+      },
+      "top3": [
+        [
+          "Cotton",
+          1.0
+        ],
+        [
+          "Maize",
+          0.0
+        ],
+        [
+          "Banana",
+          0.0
+        ]
+      ],
+      "ranked": [
+        {
+          "crop": "Cotton",
+          "confidence": 100.0,
+          "suitability": "High",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Maize",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable"
+        },
+        {
+          "crop": "Banana",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable"
+        }
+      ],
+      "best_crop": "Cotton",
+      "best_confidence": 100.0,
+      "fertilizer_plan": {
+        "summary": "Soil N-P-K nutrient status is in near-optimal balance for Cotton.",
+        "actions": [],
+        "commercial": [],
+        "ph_status": "Optimal / Neutral",
+        "ph_advice": "Soil pH is in the optimal range (6.2 - 7.5). Excellent nutrient assimilation capacity.",
+        "organic": [
+          "Well-decomposed Farm Yard Manure (FYM): 4-5 tonnes/acre",
+          "Vermicompost: 1.5-2 tonnes/acre enriched with Trichoderma viride",
+          "Biofertilizers: Azotobacter / Rhizobium (for pulses) + PSB (Phosphate Solubilizing Bacteria) @ 2 kg/acre seed or soil treatment",
+          "Neem Cake: 150 kg/acre (acts as slow-release organic N and suppresses root-knot nematodes)"
+        ],
+        "ideal_profile": {
+          "N": 120,
+          "P": 46,
+          "K": 20,
+          "pH": 6.9
+        }
+      },
+      "advice": "Soil N-P-K nutrient status is in near-optimal balance for Cotton."
+    },
+    "Field 3 - Coastal Karnataka Horticultural Land": {
+      "input": {
+        "N": 98,
+        "P": 78,
+        "K": 48,
+        "temperature": 27.5,
+        "humidity": 82.0,
+        "ph": 6.1,
+        "rainfall": 110.0
+      },
+      "top3": [
+        [
+          "Banana",
+          1.0
+        ],
+        [
+          "Tomato",
+          0.0
+        ],
+        [
+          "Jute",
+          0.0
+        ]
+      ],
+      "ranked": [
+        {
+          "crop": "Banana",
+          "confidence": 100.0,
+          "suitability": "High",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Tomato",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Jute",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Temperature profile is highly favorable"
+        }
+      ],
+      "best_crop": "Banana",
+      "best_confidence": 100.0,
+      "fertilizer_plan": {
+        "summary": "Soil N-P-K nutrient status is in near-optimal balance for Banana.",
+        "actions": [],
+        "commercial": [],
+        "ph_status": "Moderately Acidic",
+        "ph_advice": "Soil is mildly acidic. Suitable for most crops; add 2 tonnes of well-rotted farmyard manure (FYM) or compost.",
+        "organic": [
+          "Well-decomposed Farm Yard Manure (FYM): 4-5 tonnes/acre",
+          "Vermicompost: 1.5-2 tonnes/acre enriched with Trichoderma viride",
+          "Biofertilizers: Azotobacter / Rhizobium (for pulses) + PSB (Phosphate Solubilizing Bacteria) @ 2 kg/acre seed or soil treatment",
+          "Neem Cake: 150 kg/acre (acts as slow-release organic N and suppresses root-knot nematodes)"
+        ],
+        "ideal_profile": {
+          "N": 100,
+          "P": 80,
+          "K": 50,
+          "pH": 6.0
+        }
+      },
+      "advice": "Soil N-P-K nutrient status is in near-optimal balance for Banana."
+    },
+    "Field 4 - Arid Rajasthan Sandy Soil": {
+      "input": {
+        "N": 42,
+        "P": 24,
+        "K": 21,
+        "temperature": 31.0,
+        "humidity": 42.0,
+        "ph": 7.4,
+        "rainfall": 45.0
+      },
+      "top3": [
+        [
+          "Millets (Bajra)",
+          1.0
+        ],
+        [
+          "Black Gram",
+          0.0
+        ],
+        [
+          "Mustard",
+          0.0
+        ]
+      ],
+      "ranked": [
+        {
+          "crop": "Millets (Bajra)",
+          "confidence": 100.0,
+          "suitability": "High",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Black Gram",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions, Temperature profile is highly favorable, Soil pH is well-aligned with root physiology"
+        },
+        {
+          "crop": "Mustard",
+          "confidence": 0.0,
+          "suitability": "Fair",
+          "reason": "Rainfall requirements match field conditions"
+        }
+      ],
+      "best_crop": "Millets (Bajra)",
+      "best_confidence": 100.0,
+      "fertilizer_plan": {
+        "summary": "Soil N-P-K nutrient status is in near-optimal balance for Millets (Bajra).",
+        "actions": [],
+        "commercial": [],
+        "ph_status": "Optimal / Neutral",
+        "ph_advice": "Soil pH is in the optimal range (6.2 - 7.5). Excellent nutrient assimilation capacity.",
+        "organic": [
+          "Well-decomposed Farm Yard Manure (FYM): 4-5 tonnes/acre",
+          "Vermicompost: 1.5-2 tonnes/acre enriched with Trichoderma viride",
+          "Biofertilizers: Azotobacter / Rhizobium (for pulses) + PSB (Phosphate Solubilizing Bacteria) @ 2 kg/acre seed or soil treatment",
+          "Neem Cake: 150 kg/acre (acts as slow-release organic N and suppresses root-knot nematodes)"
+        ],
+        "ideal_profile": {
+          "N": 45,
+          "P": 25,
+          "K": 20,
+          "pH": 7.2
+        }
+      },
+      "advice": "Soil N-P-K nutrient status is in near-optimal balance for Millets (Bajra)."
+    }
+  }
+}

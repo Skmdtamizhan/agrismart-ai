@@ -1,0 +1,18 @@
+[1/4] DATA       : loading soil & climate dataset
+[2/4] PROCESSING : cleaning, scaling, splitting
+       {'raw_rows': 2800, 'missing': 140, 'clean_rows': 2800, 'train': 2240, 'test': 560}
+[3/4] AI / ML    : training models
+       Naive Bayes          CV=0.954 Test=0.964
+       K-Nearest Neighbors  CV=0.939 Test=0.955
+       Random Forest        CV=0.953 Test=0.970
+       Best -> Random Forest
+[4/4] OUTPUT     : charts + recommendations
+
+Field A: Rice 100%, Wheat 0%, Sugarcane 0%
+  Advice: N low (60 vs ~80): add urea; pH suitable
+
+Field B: Sugarcane 95%, Banana 4%, Coffee 0%
+  Advice: pH acidic: add lime
+
+Field C: Groundnut 99%, Maize 1%, Sugarcane 0%
+  Advice: pH suitable

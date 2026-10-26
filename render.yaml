@@ -1,0 +1,10 @@
+﻿services:
+  - type: web
+    name: agrismart-ai
+    env: python
+    buildCommand: "pip install -r requirements.txt && python crop_ai/main.py"
+    startCommand: "python app.py 10000"
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
