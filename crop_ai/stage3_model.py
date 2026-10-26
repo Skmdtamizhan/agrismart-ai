@@ -1,4 +1,4 @@
-﻿"""STAGE 3 - AI/ML: Train & evaluate agricultural classifiers."""
+"""STAGE 3 - AI/ML: Train & evaluate agricultural classifiers."""
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB

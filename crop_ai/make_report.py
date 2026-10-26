@@ -1,4 +1,4 @@
-﻿"""Automated PDF Project & Agronomic Report Generator."""
+"""Automated PDF Project & Agronomic Report Generator."""
 import json
 from pathlib import Path
 import os

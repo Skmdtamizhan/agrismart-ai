@@ -1,4 +1,4 @@
-﻿"""AgriSmart AI - Core Backend Business Logic & Agronomic Knowledge Engine."""
+"""AgriSmart AI - Core Backend Business Logic & Agronomic Knowledge Engine."""
 import sys
 import os
 import json

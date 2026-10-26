@@ -1,4 +1,4 @@
-﻿"""STAGE 4 - OUTPUT: Top-ranked crop recommendations, precision fertilizer calculations, charts."""
+"""STAGE 4 - OUTPUT: Top-ranked crop recommendations, precision fertilizer calculations, charts."""
 from pathlib import Path
 import os
 import tempfile

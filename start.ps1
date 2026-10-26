@@ -1,4 +1,4 @@
-﻿Write-Host "========================================================================" -ForegroundColor Green
+Write-Host "========================================================================" -ForegroundColor Green
 Write-Host "  Starting AgriSmart AI Web Application..." -ForegroundColor Cyan
 Write-Host "========================================================================" -ForegroundColor Green
 if (Test-Path ".venv\Scripts\python.exe") {

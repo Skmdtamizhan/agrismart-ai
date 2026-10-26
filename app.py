@@ -1,4 +1,4 @@
-﻿"""AgriSmart AI - Intelligent Crop Recommendation & Precision Farming Web Application.
+"""AgriSmart AI - Intelligent Crop Recommendation & Precision Farming Web Application.
 Launch: python app.py
 Access: http://localhost:8501
 """

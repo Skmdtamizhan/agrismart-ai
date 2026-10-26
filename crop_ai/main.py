@@ -1,4 +1,4 @@
-﻿"""AI-Based Crop Recommendation & Precision Fertilizer Advisory System
+"""AI-Based Crop Recommendation & Precision Fertilizer Advisory System
 Workflow: Data -> Processing -> AI/ML -> Output
 Enhanced for 26+ agricultural crops with Explainable Agronomy.
 """

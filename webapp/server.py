@@ -1,4 +1,4 @@
-﻿"""AgriSmart AI - High Performance Multi-Threaded Web Server & REST API.
+"""AgriSmart AI - High Performance Multi-Threaded Web Server & REST API.
 Zero external server dependencies required. Runs anywhere.
 """
 import sys

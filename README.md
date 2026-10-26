@@ -1,4 +1,4 @@
-﻿# 🌱 AgriSmart AI™ — Intelligent Crop Intelligence & Precision Farming Platform
+# 🌱 AgriSmart AI™ — Intelligent Crop Intelligence & Precision Farming Platform
 
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.14-059669.svg)](https://python.org)
 [![Accuracy](https://img.shields.io/badge/ML%20Accuracy-94.7%25%20(32%20Crops)-10b981.svg)](https://scikit-learn.org)

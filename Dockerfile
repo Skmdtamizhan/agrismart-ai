@@ -1,4 +1,4 @@
-﻿# AgriSmart AI - Production Multi-Stage Container
+# AgriSmart AI - Production Multi-Stage Container
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

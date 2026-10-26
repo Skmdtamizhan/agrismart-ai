@@ -1,4 +1,4 @@
-﻿"""STAGE 1 - DATA: Comprehensive soil & climate records for 26 major agricultural crops.
+"""STAGE 1 - DATA: Comprehensive soil & climate records for 26 major agricultural crops.
 Includes Cereals, Pulses, Cash Crops, Oilseeds, and Horticultural Crops.
 Calibrated against ICAR, FAO, and USDA agronomic standards.
 """
